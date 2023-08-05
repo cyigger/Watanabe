@@ -348,6 +348,8 @@ air.velocity = -2,10
 fall = 1
 Envshake.time = 30
 Fall.recover = 0
+down.velocity = -2,-4
+down.bounce = 1
 
 [State 0, PlayerPush]
 type = PlayerPush
@@ -366,7 +368,7 @@ pos = 0,20
 
 [State 200, End]
 type = ChangeState
-trigger1 = pos y >= -5
+trigger1 = time >= 12
 value = 20005
 ctrl = 1
 ;===============================================================================
@@ -476,7 +478,7 @@ down.bounce = 1
 
 [State 0, Helper]
 type = Helper
-trigger1 = AnimElem = 3 && numhelper(401) = 0
+trigger1 = AnimElem = 3 && numhelper(401) <= 2
 helpertype = normal ;player
 name = "green sword"
 ID = 401

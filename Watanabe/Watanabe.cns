@@ -3726,14 +3726,13 @@ hitsound   = 5,3
 guardsound = 6,11
 ground.type = High
 ground.slidetime = 12
-ground.hittime  = 20 + ifelse(enemy,movetype = A, 7,0)
+ground.hittime  = 25 + ifelse(enemy,movetype = A, 7,0)
 ground.velocity = -1, 0
 air.velocity = -1,-1
 Fall = 0
 air.fall = 1
-fall.recovertime = 35
+fall.recovertime = 35 + ifelse(enemy,movetype = A, 7,0)
 Envshake.time = 5
-Fall.recovertime = 25 + ifelse(enemy,movetype = A, 7,0)
 guard.cornerpush.veloff = -5
 airguard.cornerpush.veloff = -4
 
