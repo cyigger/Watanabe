@@ -132,7 +132,7 @@ thoughtiwasagoner = 0 ; he thought he was a goner;.
 victory0 = "did you pray today did you pray today cuz if you didnt ima have to dig you down on sum gangsta shi"
 victory1 = "Thought I was a goner!"
 victory2 = "Sayonara baby!"
-victory3 = "nigga go boxing ring"
+victory3 = "z"
 ;---------------------------------------------------------------------------
 ; Lose by Time Over
 ; CNS difficulty: basic
@@ -232,22 +232,6 @@ trigger1 = AnimElem = 5
 value = S190,ifelse(random>=449,2,1)
 volumescale = 200
 
-[State 191, Dialogue]
-type = Dialogue
-triggerall = enemy,name = "Watanabe"
-trigger1 = 1
-hidebars = 1
-text1 = "<p1>hi<wait=30>"
-text2 = "<p2>copier.<wait=30> kys NOW<wait=30>"
-
-[State 191, Dialogue]
-type = Dialogue
-triggerall = enemy,name = "Stray"
-trigger1 = 1
-hidebars = 1
-text1 = "<p1>Nigga go boxing ring.<wait=30>"
-text2 = "<p2>Bro thinks hes esam<wait=30>"
-
 
 [State 191, Dialogue]
 type = Dialogue
@@ -264,7 +248,7 @@ trigger1 = 1
 hidebars = 1
 text1 = "<p1>Is... Is that the real Kirby!?<wait=30>"
 text2 = "<p2>no<wait=30>"
-text3 = "<p1>You're just a fake.<wait=30>"
+text3 = "<p1>Faker!<wait=30>"
 text4 = "<p2>im korby black :slight_frown:<wait=30>"
 
 [State 190, 2] ;Assert this until you want "round 1, fight" to begin
@@ -1539,6 +1523,7 @@ trigger1 = !movecontact
 trigger1 = AnimElem = 5
 trigger2 = root,movetype = H && Time > 600
 trigger3 = enemy,stateno = [801,803] && movecontact
+trigger4 = movecontact && p2dist x != [-60,60]  ; Well, I'm just glad I made a new friend
 value = 401
 elem = 6
 persistent = 0
@@ -2147,7 +2132,7 @@ time = 1
 [State 0, HitOverride]
 type = HitOverride
 trigger1 = root,stateno = [5000,5210]
-attr =  SCA,NA,SA,HA,NP,HP,NT,ST,HT       ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+attr =  SCA,NA,SA,HA,NT,ST,HT       ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
 slot = 0
 stateno = 454
 time = 1
@@ -3019,6 +3004,15 @@ air.velocity = -2,-1
 Fall = 0
 Envshake.time = 10
 
+
+[State -1, not Ether Drive]
+type = ChangeState
+value = 21000
+Triggerall = movecontact
+triggerall = numhelper(3500) = 0
+trigger1 = command = "SPECIAL 3"
+Triggerall = power >= 500
+
 [State 200, End]
 type = ChangeState
 triggerall = movecontact
@@ -3157,6 +3151,14 @@ airguard.cornerpush.veloff = -10
 ;ground.cornerpush.veloff = -5
 ;air.cornerpush.veloff = -5
 
+[State -1, not Ether Drive]
+type = ChangeState
+value = 21000
+Triggerall = movecontact
+triggerall = numhelper(3500) = 0
+trigger1 = command = "SPECIAL 3"
+Triggerall = power >= 500
+
 [State 200, End]
 type = ChangeState
 triggerall = movecontact
@@ -3257,7 +3259,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = A, NA
 animtype  = Light
-damage    = 20
+damage    = 10
 hitflag = MAF
 guardflag = HA
 pausetime = 10,15
@@ -3878,6 +3880,7 @@ ctrl = 0
 anim = 623
 velset = 0,0
 
+
 [State 0, BindToRoot]
 type = BindToRoot
 trigger1 = 1 && root,stateno = 620
@@ -4119,9 +4122,19 @@ persistent = 0
 [State 0, Juggle Map]
 type = RootMapAdd
 trigger1 = movehit && enemy,gethitvar(fall)
+trigger1 = numhelper(403) >= 1
 map = "juggle"
 value = 5
 persistent = 0
+
+[State 0, Damage Proration]
+type = ParentVarAdd
+trigger1 = movehit
+trigger1 = numhelper(403) >= 1
+v = 11
+ignorehitpause = 1
+persistent = 0
+value = 5
 
 [State 0, Juggle Map]
 type = RootMapSet
@@ -4358,6 +4371,8 @@ air.velocity = -1.5,-2
 fall = 1
 fall.recover = 0
 Getpower = 0,0
+down.velocity = -2,-4
+down.bounce = 1
 
 [State 0, PosSet]
 type = PosSet
@@ -4622,6 +4637,8 @@ juggle  = 2
 ctrl = 0
 anim = 420
 sprpriority = 5
+
+; Anti Lame Ass Combos, Pro Setup Combos
 
 [State 200, End]
 type = Changestate

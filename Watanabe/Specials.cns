@@ -189,7 +189,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, SP
 animtype  = Light
-damage    = 8
+damage    = 7
 hitflag = MAF
 guardflag = MAF
 pausetime = 0,10
@@ -277,6 +277,13 @@ y = -7
 type = VelSet
 trigger1 = AnimElem = 4
 y = 16
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S20000,0
+volumescale = 200
+channel = 0
 
 [State 0, SuperPause]
 type = SuperPause
@@ -394,6 +401,13 @@ value = 1
 type = PlaySnd
 trigger1 = AnimElem = 3
 value = S20020,1
+volumescale = 200
+channel = 0
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 3
+value = S20000,1
 volumescale = 200
 channel = 0
 
@@ -695,7 +709,7 @@ ctrl = 1
 ;-------------------------------------------------------------------------------
 ;-------------------------------------------------------------------------------
 ;===============================================================================
-; sum sideswitch super
+; storm wolf  sideswitch
 ;-------------------------------------------------------------------------------
 [Statedef 21000]
 type    = S
@@ -831,17 +845,17 @@ poweradd = -1000
 [State 0, SuperPause]
 type = SuperPause
 trigger1 = Time = 1
-time = 10
+time = 25
 sound = 20,0
 pos = 0,-20
-movetime = 10
+movetime = 25
 darken = 1
 p2defmul = 1
 poweradd = 0
 
 [State 0, Helper]
 type = Helper
-trigger1 = time = 23
+trigger1 = time = 26
 helpertype = normal ;player
 name = "plantTHROWSuper"
 ID = 5465
@@ -861,7 +875,7 @@ supermovetime= 0
 
 [State 0, Helper]
 type = Helper
-trigger1 = time = 24
+trigger1 = time = 27
 helpertype = normal ;player
 name = "plantTHROWSuper"
 ID = 5465
@@ -891,10 +905,16 @@ ctrl = 1
 [Statedef 22005]
 type    = A
 movetype= A
-physics = A
+physics = N
 juggle  = 1
 ctrl = 0
 anim = 5465
+
+[State 0, AttackDist]
+type = AttackDist
+trigger1 = 1
+value = 30
+
 
 [State 0, ScreenBound]
 type = ScreenBound
@@ -946,13 +966,12 @@ x = 2.5
 y = -6
 
 
-[State 0, HitOverride]
-type = HitOverride
+
+[State 200, Gravity]
+type = VelAdd
 trigger1 = 1
-attr = SCA,NA,SA,HA,NP,HP,NT,ST,HT     ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
-stateno = 22010
-time = 1
-forceair = 0
+y = 0.44
+
 
 
 ;ignorehitpause = 
@@ -1000,6 +1019,14 @@ ground.type = High
 ground.slidetime = 12
 Envshake.time = 5
 
+[State 0, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,NA,SA,HA,NP,HP,NT,ST,HT     ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 22010
+time = 1
+forceair = 0
+
 [State 0, TargetBind]
 type = TargetBind
 trigger1 =  movehit
@@ -1013,7 +1040,7 @@ ctrl = 1
 
 [State 200, End]
 type = ChangeState
-trigger1 = pos y >= -11
+trigger1 = pos y >= 0
 value = 22015
 
 ;===============================================================================
@@ -1022,10 +1049,16 @@ value = 22015
 [Statedef 22010]
 type    = A
 movetype= A
-physics = A
+physics = N
 juggle  = 1
 ctrl = 0
 anim = 5465
+
+[State 0, AttackDist]
+type = AttackDist
+trigger1 = 1
+value = 30
+
 
 [State 0, FatalCounter]
 type = RootMapSet
@@ -1033,6 +1066,11 @@ trigger1 = 1
 map = "fatal"
 value = 1
 ignorehitpause = 1
+
+[State 200, Gravity]
+type = VelAdd
+trigger1 = 1
+y = 0.44
 
 [State 0, VelSet]
 type = VelSet
@@ -1092,7 +1130,7 @@ pausetime = 0,55
 guard.pausetime = 0,15
 guard.sparkno = 13000
 sparkxy = -8,-25
-affectteam = B
+affectteam = F
 hitsound   = 5,1
 guardsound = 6,10
 ground.type = High
@@ -1112,7 +1150,7 @@ ctrl = 1
 
 [State 200, End]
 type = ChangeState
-trigger1 = pos y >= -11
+trigger1 = pos y >= 0
 value = 22015
 
 ;===============================================================================
@@ -1158,21 +1196,23 @@ ctrl = 0
 anim = 452
 velset = 0,0
 
-
-[State 0, HitOverride]
-type = HitOverride
+[State 0, AttackDist]
+type = AttackDist
 trigger1 = 1
-attr =  SCA,NA,SA,HA,NP,HP,NT,ST,HT       ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
-slot = 0
-stateno = 454
-time = 1
-forceair = 0
+value = 30
 
 [State 200, End]
 type = ChangeState
-trigger1 = Time = 480
+trigger1 = Time = 540
 value = 454
 ctrl = 1
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = SCA,AT,AA,AP
+;value2 = S,NA
+time = 1
 
 [State -2, Counterhit TSP]
 type = Helper
@@ -1204,15 +1244,24 @@ trigger1 = movecontact
 value = 453
 ctrl = 1
 
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = root,movetype = H
+movetype = I        ;I,A,H
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = root,movetype != H
+movetype = A        ;I,A,H
+
 [State 200, 1]
 type = HitDef
 getpower = 0
-triggerall = !movecontact
+triggerall = !movecontact 
 trigger1 = 1
 attr = S,SA
 animtype  = Medium
 damage    = 20
-priority = 1, Miss
 hitflag = MAFD
 guardflag =  MA
 sparkno = 0
