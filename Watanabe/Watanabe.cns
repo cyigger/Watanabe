@@ -796,7 +796,7 @@ triggerall = map(juggle) < 100
 trigger1 = 1
 attr = S, NA
 animtype  = Medium
-damage    = 20
+damage    = 15
 hitflag = MAF
 guardflag = MAF
 pausetime = 5,10
@@ -1377,7 +1377,7 @@ type = HitDef
 trigger1 = !movecontact
 animtype  = Heavy
 attr = S, NP
-damage = 10
+damage = 5
 hitflag = MAF
 guardflag = MA
 ground.hittime = 20
@@ -3942,7 +3942,7 @@ type = HitDef
 trigger1 = !movecontact
 animtype  = Heavy
 attr = S, NP
-damage = 5
+damage = 15
 hitflag = MAF
 guardflag = MA
 ground.hittime = 20
@@ -4187,7 +4187,7 @@ type = HitDef
 trigger1 = !movecontact && prevstateno != 401
 animtype  = Heavy
 attr = S, NP
-damage = ifelse(enemy,movetype = A,40,20)
+damage = ifelse(enemy,movetype = A,20,10)
 hitflag = MAFD
 guardflag = HA
 ground.hittime = 20
@@ -4355,7 +4355,7 @@ type = HitDef
 trigger1 = !movecontact && root,stateno != [20000,20005]
 animtype  = Heavy
 attr = S, NP
-damage = 5
+damage = 10
 hitflag = MAFD
 guardflag = MA
 ground.hittime = 20
