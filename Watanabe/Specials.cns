@@ -368,7 +368,9 @@ pos = 0,20
 
 [State 200, End]
 type = ChangeState
+trigger1 = pos y >= -5
 trigger1 = time >= 12
+trigger2 = time = 180
 value = 20005
 ctrl = 1
 ;===============================================================================
@@ -1373,9 +1375,9 @@ name = "ima firing my lasar"
 ID = 24000
 stateno = 24000
 pos = 0,0
-postype = p2    ;p2,front,back,left,right
+postype = p1   ;p2,front,back,left,right
 facing = 1
-ownpal = 0
+ownpal = 1
 supermovetime = 0
 pausemovetime = 0
 inheritJuggle = 1
@@ -1649,18 +1651,12 @@ movetype= A
 physics = S
 anim = 23500
 
-[State 0, VelSet]
-type = VelSet
-trigger1 = 1
-x = 0
-y = 0
-
 
 
 [State 0, PosSet]
 type = PosSet
-trigger1 = time = 0
-x = target,pos x
+trigger1 = time <= 8
+x = enemy,pos x
 y = 0
 ;ignorehitpause = 
 ;persistent = 

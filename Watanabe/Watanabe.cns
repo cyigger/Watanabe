@@ -1037,6 +1037,11 @@ ctrl = 0
 anim = 311
 sprpriority = 1
 
+[State 1010, Helper Attack Scale]
+type = AttackMulSet
+trigger1 = 1
+value = 1 * 0.99**root,var(11)
+ignorehitpause = 1
 
 [State 0, Juggle Map]
 type = RootMapAdd
@@ -3087,7 +3092,7 @@ channel = 0
 type = MapAdd
 trigger1 = movehit && enemy,gethitvar(fall)
 map = "juggle"
-value = 7
+value = 5
 persistent = 0
 
 [State 0, Damage Proration]
@@ -4129,7 +4134,7 @@ persistent = 0
 [State 0, Damage Proration]
 type = ParentVarAdd
 trigger1 = movehit
-trigger1 = numhelper(403) >= 1
+trigger1 = numhelper(403) >= 1 ; why do you ignore this. Oh well
 v = 11
 ignorehitpause = 1
 persistent = 0
