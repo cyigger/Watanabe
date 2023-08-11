@@ -2599,7 +2599,8 @@ ampl = -4
 type = PowerAdd
 triggerall = time >= 7
 triggerall = numhelper(9999) = 0
-triggerall = var(22) = 0
+trigger1 = helper(401),stateno != 401
+;trigger1 = helper(401),animelem != 3 || helper(401),animelem != 4 || helper(401),animelem != 5 
 trigger1 = 1
 value = 10
 
@@ -2607,9 +2608,12 @@ value = 10
 type = PowerAdd
 triggerall = time >= 7
 triggerall = numhelper(9999) = 0
-triggerall = var(22) = 1
+trigger1 = helper(401),stateno = 401
+;trigger1 = helper(401),animelem = 3 || helper(401),animelem = 4 || helper(401),animelem = 5 
 trigger1 = 1
-value = 15
+value = 5
+
+
 
 [State 200, End]
 type = ChangeState
@@ -4111,7 +4115,7 @@ channel = -1
 
 [State 0, PosSet]
 type = PosSet
-trigger1 = time <= 17 && root,stateno = 460
+trigger1 = time <= 17 && root,stateno = 460 
 x = root,pos x
 ;ignorehitpause = 
 ;persistent = 
@@ -4125,16 +4129,14 @@ persistent = 0
 
 [State 0, Juggle Map]
 type = RootMapAdd
-trigger1 = movehit && enemy,gethitvar(fall)
-trigger1 = numhelper(403) >= 1
+trigger1 = movehit && enemy,gethitvar(fall) && numhelper(403) = 0
 map = "juggle"
 value = 5
 persistent = 0
 
 [State 0, Damage Proration]
 type = ParentVarAdd
-trigger1 = movehit
-trigger1 = numhelper(403) >= 1 ; why do you ignore this. Oh well
+trigger1 = movehit &&  numhelper(403) = 0 
 v = 11
 ignorehitpause = 1
 persistent = 0
@@ -4369,13 +4371,13 @@ guardsound = 6,11
 p1sprpriority = 0
 ground.type = High
 ground.slidetime = 25
-ground.velocity = -2,-2
+ground.velocity = -1,-3
 airguard.velocity = 1.5,-1.5
-air.velocity = -1.5,-2
+air.velocity = -2,3
 fall = 1
 fall.recover = 0
 Getpower = 0,0
-down.velocity = -2,-4
+down.velocity = -3,-4
 down.bounce = 1
 
 [State 0, PosSet]
@@ -4465,9 +4467,9 @@ guardsound = 6,11
 p1sprpriority = 0
 ground.type = High
 ground.slidetime = 25
-ground.velocity = -2,-2
+ground.velocity = -2,-3
 airguard.velocity = 1.5,-1.5
-air.velocity = -1.5,-2
+air.velocity = -1.5,-3
 fall.recover = 0
 Getpower = 0,0
 
@@ -4663,8 +4665,12 @@ sprpriority = 5
 [State 200, End]
 type = Changestate
 trigger1 = root,helper(401),anim = 401
-trigger1 = root,helper(401),animelemtime(2) > 600
+trigger1 = root,helper(401),animelemtime(5) > 600
 trigger2 = root,numhelper(401) = 0
+trigger3 = root,helper(401),prevstateno = 401
+trigger3 = root,helper(401),stateno = 461
+trigger1 = root,helper(401),animelem = 8
+trigger3 = root,helper(401),movehit
 value = 430
 
 
