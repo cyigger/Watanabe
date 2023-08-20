@@ -16,14 +16,14 @@ poweradd = -1000
 
 [State 0, Juggle Map]
 type = MapAdd
-trigger1 = numhelper(19003) >= 1
+trigger1 = numhelper(19003) >= 1 && helper(19002),movehit 
 map = "juggle"
 value = 50
 persistent = 0
 
 [State 0, Damage Proration]
 type = VarAdd
-trigger1 = numhelper(19003) >= 1
+trigger1 = numhelper(19003) >= 1 && helper(19002),movehit 
 v = 11
 ignorehitpause = 1
 persistent = 0
@@ -266,7 +266,7 @@ value = 1
 [State 0, VelAdd]
 type = VelAdd
 trigger1 = AnimElem = 1
-x = 3
+x = ifelse(prevstateno=310,12,3)
 
 [State 0, VelSet]
 type = VelSet
@@ -305,7 +305,7 @@ triggerall = enemy,movetype = A
 trigger1 = !movecontact
 attr = A, SA
 animtype  = Heavy
-damage    = 90
+damage    = 110
 hitflag = MAFD
 guardflag = MA
 pausetime = 24,24
@@ -331,7 +331,7 @@ triggerall = enemy,movetype != A
 trigger1 = !movecontact
 attr = A, SA
 animtype  = Heavy
-damage    = 45
+damage    = 55
 hitflag = MAFD
 guardflag = MA
 pausetime = 12,12
@@ -1616,7 +1616,7 @@ pos = 0,10
 [State 0, VelSet]
 type = VelAdd
 trigger1 = AnimElem = 3
-x = 25
+x = 30
 y = 0
 
 [State 0, VelSet]

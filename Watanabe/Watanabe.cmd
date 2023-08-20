@@ -593,7 +593,6 @@ type = ChangeState
 value = 20000
 triggerall = numhelper(3500) = 0
 triggerall = command = "SPECIAL 2"
-Triggerall = statetype = A
 Triggerall = power >= 1000
 trigger1 = ctrl
 ;---------------------------------------------------------------------------
@@ -743,7 +742,7 @@ type = ChangeState
 value = 5464
 triggerall = numhelper(5465) = 0
 triggerall = numhelper(3500) = 0
-Triggerall = power >= 500
+Triggerall = power >= 200
 triggerall = command = "holdfwd"
 triggerall = command = "c"
 trigger1 = ctrl
@@ -884,16 +883,6 @@ trigger1 = ctrl
 type = ChangeState
 value = 600
 triggerall = command = "a"
-Triggerall = statetype = A
-trigger1 = ctrl
-
-;---------------------------------------------------------------------------
-; Down + B Aire
-[State -1, Down + B Aire]
-type = ChangeState
-value = 615
-triggerall = command = "holddown"
-triggerall = command = "b"
 Triggerall = statetype = A
 trigger1 = ctrl
 ;---------------------------------------------------------------------------
