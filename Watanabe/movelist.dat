@@ -4,15 +4,16 @@ _F^C
 <#f0f000>:EX ATTACKS!:</>
 
 Summon (1/4 Bar)							^C
-	"Watanabe summons a sword."
+	"Watanabe summons a sword. Meter charge is
+	halved when a sword is out."
 
 Grounded Summon (1/4 Bar)							_D^C
 	"Watanabe sticks his sword in the ground
 	and summons a sword from it."
 
 Summon: Air (1/2 Bar)							_AIR^C
-	"Watanabe summons a sword and rides it. Press
-	C again for Watanabe to abandon it, and make
+	"Watanabe summons a sword and rides it. Hold up,
+	down or C for Watanabe to abandon it, and make
 	it attach to the wall."
 
 Grounded Summon: Air (1/2 Bar)								_AIR_D^C
@@ -25,11 +26,6 @@ Seed Throw (1/4 Bar)							_F^C
 	 that will wrap on contact."
 
 
-
-
-
-
-
 <#f0f000>:STAR STRIKES!:</>
 
 "Ether Drive" (1 Bar)						_D_DF_F^A
@@ -40,7 +36,8 @@ Seed Throw (1/4 Bar)							_F^C
 	plants to protect him, this also summons a sword."
 
 Seed spread (1 Bar, _AIR OK)    						_D_DF_F^B
-	"Watanabe throws seeds around him."
+	"Watanabe throws seeds around him, these have
+	different properties than the normal seed."
 
 "Storm Wolf" (1/2 Bar, _AIR OK)    						D_DB_B^B
 	"sideswitches the opponent"
@@ -48,4 +45,6 @@ Seed spread (1 Bar, _AIR OK)    						_D_DF_F^B
 "Moonlit Serenade" (1 1/2 Bars)				_D_DF_F^C
 	"Watanabe throws a summoned sword forward!
 	If it connects, the opponent gets BLASTED
-	TO DEATH. Summoned sword stays on whiff."
+	TO DEATH. Summoned sword stays on whiff.
+	If a summoned sword already is hitting an
+	opponent this move becomes instant."

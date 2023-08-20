@@ -2948,7 +2948,7 @@ type = HitDef
 trigger1 = time%10 = 0
 animtype  = Heavy
 attr = S, NT
-damage = 15
+damage = 20
 hitflag = MAFD
 guardflag = MA
 ground.hittime = 20
