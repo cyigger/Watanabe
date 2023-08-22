@@ -1477,7 +1477,6 @@ persistent = 0
 [State 0, ChangeState]
 type = ChangeState
 triggerall = prevstateno != 463
-triggerall = root,power >= 200
 trigger1 = command = "c" && command = "holddown" && root,movetype != H  && root,stateno != [120,140] && command != "holdfwd" && numhelper(5465) = 0 && root,stateno != [500,501] && root,stateno != [5040,5210] 
 trigger2 = command = "c" && command = "holddown" && root,movetype != H  && root,stateno != [120,140] && numhelper(5465) > 0 && root,stateno != [500,501] && root,stateno != [5040,5210]
 value = 461
@@ -1576,7 +1575,7 @@ trigger1 = !movecontact
 trigger1 = AnimElem = 5
 trigger2 = root,movetype = H && Time > 600
 trigger3 = enemy,stateno = [801,803] && movecontact
-trigger4 = movecontact && p2dist x != [-60,60]  ; Well, I'm just glad I made a new friend
+trigger4 = movecontact && p2dist x != [-80,80]  ; Well, I'm just glad I made a new friend
 value = 401
 elem = 6
 persistent = 0
@@ -3870,7 +3869,7 @@ sprpriority = 2
 [State 0, VelSet]
 type = VelSet
 trigger1 = 1
-y = vel y/2
+y = ifelse(prevstateno=105,0,vel y/2)
 ;ignorehitpause = 
 persistent = 0
 
@@ -4216,7 +4215,6 @@ Getpower = 0,0
 
 [State 0, ChangeState]
 type = ChangeState
-triggerall = root,power >= 200
 trigger1 = command = "c" && command = "holddown" && root,movetype != H  && root,stateno != [120,140] && command != "holdfwd" && numhelper(5465) = 0 && root,stateno != [500,501] && root,stateno != [5040,5210] 
 trigger2 = command = "c" && command = "holddown" && root,movetype != H  && root,stateno != [120,140] && numhelper(5465) > 0 && root,stateno != [500,501] && root,stateno != [5040,5210]
 value = 461
@@ -4408,7 +4406,6 @@ down.bounce = 1
 
 [State 0, ChangeState]
 type = ChangeState
-triggerall = root,power >= 200
 trigger1 = command = "c" && command = "holddown" && root,movetype != H  && root,stateno != [120,140] && command != "holdfwd" && numhelper(5465) = 0 && root,stateno != [500,501] && root,stateno != [5040,5210] 
 trigger2 = command = "c" && command = "holddown" && root,movetype != H  && root,stateno != [120,140] && numhelper(5465) > 0 && root,stateno != [500,501] && root,stateno != [5040,5210]
 value = 461
@@ -4542,7 +4539,6 @@ physics = A
 juggle  = 1
 ctrl = 0
 anim = 460
-poweradd = 0
 sprpriority = 2
 poweradd = -500
 
@@ -4613,6 +4609,11 @@ anim = 461
 velset = 0,0
 sprpriority = 2
 
+[State 0, ScreenBound]
+type = ScreenBound
+trigger1 = 1
+value = 1
+
 [State 0, PlaySnd]
 type = PlaySnd
 trigger1 = time = 17
@@ -4661,7 +4662,7 @@ type = TargetBind
 trigger1 = movehit
 time = 1
 id = -1
-pos = 0,15
+pos = 0,10
 ;ignorehitpause = 
 ;persistent = 
 
@@ -4704,7 +4705,7 @@ damage = ifelse(enemy,movetype = A,20,10)
 hitflag = MAFD
 guardflag = HA
 ground.hittime = 20
-pausetime = 0,90
+pausetime = 0,30
 guard.pausetime = 3,0
 sparkno = 0
 sparkxy = 0, 0
@@ -4771,6 +4772,12 @@ ctrl = 0
 anim = 462
 velset = 0,0
 sprpriority = 2
+
+[State 0, TargetDrop]
+type = TargetDrop
+trigger1 = 1
+;ignorehitpause = 
+;persistent = 
 
 [State 0, Helper]
 type = Helper
