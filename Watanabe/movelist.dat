@@ -1,5 +1,6 @@
-<#f0f000>:UNIQUE NORMALS:</>
-_F^C
+<#f0f000>:PASSIVE:</>
+	"A sword stuck in either the ground or wall 
+	summons a Thunder every 3 seconds."
 
 <#f0f000>:EX ATTACKS!:</>
 
