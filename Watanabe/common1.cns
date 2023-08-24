@@ -648,6 +648,11 @@ type = VelSet
 trigger1 = 1
 x = const(velocity.run.fwd.x)
 
+[State 100, 1]
+type = VelSet
+trigger1 = prevstateno = 5464
+y = 0
+
 [State 0, Explod]
 type = Explod
 trigger1 = AnimElem = 1

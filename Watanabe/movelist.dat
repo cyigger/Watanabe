@@ -24,7 +24,9 @@ Grounded Summon: Air (1/2 Bar)								_AIR_D^C
 Seed Throw (1/4 Bar)							_F^C
 	"Watanabe throws a seed that will wrap around the
 	 opponent. When this lands it will grow into a plant
-	 that will wrap on contact."
+	 that will wrap on contact. Pressing forward with
+	 atleast 1/2 a bar will allow you to roman cancel
+	 this into run/airdash."
 
 
 <#f0f000>:STAR STRIKES!:</>
@@ -34,7 +36,8 @@ Seed Throw (1/4 Bar)							_F^C
 
 "Mystic Nocturn" (1 Bar)					_AIR_D_DB_B^A
 	"Watanabe slams his sword into the ground and summons 
-	plants to protect him, this also summons a sword."
+	plants to protect him, this also summons a grounded 
+	sword."
 
 Seed spread (1 Bar, _AIR OK)    						_D_DF_F^B
 	"Watanabe throws seeds around him, these have

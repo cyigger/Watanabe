@@ -177,6 +177,19 @@ command = D, D
 time = 10
 buffer.time = 1
 
+;-| Hold Double Tap |-----------------------------------------------------------
+[Command] ; these are to make it slightly easier for 6C roman cancel and 5AAA backdash
+name = "holdFF"     ;Required (do not remove)
+command = F, /F
+time = 10
+buffer.time = 1
+
+[Command]
+name = "holdBB"     ;Required (do not remove)
+command = B, /B
+time = 10
+buffer.time = 1
+
 ;-| 2/3 Button Combination |-----------------------------------------------
 [Command]
 name = "recovery" ;Required (do not remove)
