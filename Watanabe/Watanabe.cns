@@ -1511,6 +1511,11 @@ inheritJuggle = 1
 pausemovetime=9999999
 supermovetime=9999999
 
+
+;ignorehitpause = 
+;persistent = 
+
+
 [State 1010, Helper Attack Scale]
 type = AttackMulSet
 trigger1 = 1
@@ -1679,6 +1684,8 @@ triggerall = !movecontact
 trigger1 = AnimElemTime(2) > 0 && AnimElemTime(2) < 600
 trigger1 = (time%10) = 0
 trigger1 = P2BodyDist X < -10
+
+
 ;
 [State 20, 12]
 Type = VelSet
@@ -1749,6 +1756,7 @@ value = 401
 elem = 2
 persistent = 0
 
+
 [State 0, ChangeAnim]
 type = ChangeAnim
 trigger1 = command = "c" && root,movetype != H  && root,stateno != [120,140] && command != "holdfwd"  && numhelper(5465) = 0 &&  root,stateno != [500,501] && root,stateno != [5040,5210]
@@ -1759,6 +1767,11 @@ trigger2 = prevstateno = 623 && p2movetype = H && time = [0,5]
 value = 401
 elem = 3
 persistent = 0
+
+
+[State 0, Turn]
+type = Turn
+trigger1 = AnimElem = 5 && P2BodyDist X < -10 && target,stateno = [5040,5210]
 
 [State 0, ChangeAnim]
 type = ChangeAnim
