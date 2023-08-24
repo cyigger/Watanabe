@@ -1666,7 +1666,7 @@ inheritJuggle = 1
 type = TargetBind
 trigger1 = movehit
 time = 190
-pos = 30,15
+pos = 0,15
 ;ignorehitpause = 
 persistent = 0
 
