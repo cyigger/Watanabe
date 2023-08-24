@@ -653,6 +653,15 @@ type = VelSet
 trigger1 = prevstateno = 5464
 y = 0
 
+[State 0, AfterImage]
+type = AfterImage
+trigger1 = prevstateno = 5464
+time = 8
+trans = add
+palbright = 0,256,0
+persistent = 0
+
+
 [State 0, Explod]
 type = Explod
 trigger1 = AnimElem = 1
