@@ -1,5 +1,7 @@
 <#f0f000>:PASSIVE:</>
-	"A sword stuck in either the ground or wall 
+	"If a sword exists for atleast 1.5 seconds, 
+	it will not take proration or juggle points.
+	A sword stuck in either the ground or wall 
 	summons a Thunder every 3 seconds."
 
 <#f0f000>:EX ATTACKS!:</>
