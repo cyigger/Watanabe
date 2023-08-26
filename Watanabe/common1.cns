@@ -1920,6 +1920,7 @@ movetype= H
 physics = N
 velset = 0,0
 
+
 [State 0, PlaySnd]
 type = PlaySnd
 triggerall = random < 200

@@ -1031,7 +1031,7 @@ Envshake.time = 5
 [State 0, HitOverride]
 type = HitOverride
 trigger1 = 1
-attr = SCA,NA,SA,HA,NP,HP,NT,ST,HT     ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+attr = SCA,AA,AP,AT    ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
 stateno = 22010
 time = 1
 forceair = 0
@@ -1098,8 +1098,7 @@ y = gethitvar(yvel) * 2
 [State 0, HitOverride]
 type = HitOverride
 trigger1 = 1
-attr =  SCA,NA,SA,HA,NP,HP,NT,ST,HT        ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
-slot = 0
+attr = SCA,AA,AP,AT         ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
 stateno = 22010
 time = 1
 forceair = 0

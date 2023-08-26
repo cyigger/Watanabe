@@ -2142,6 +2142,7 @@ value = ifelse(power>=500,1,0)
 type = PowerAdd
 trigger1 = power >= 500 && command = "holdFF" && time >= 17
 value = -500
+
 [State 200, End]
 type = ChangeState
 trigger1 = map(diduhave500meter) = 1 && command = "holdFF" && time >= 17
@@ -2201,8 +2202,7 @@ value = 1
 [State 0, HitOverride]
 type = HitOverride
 trigger1 = 1
-attr = SCA,NA,SA,HA,NP,HP,NT,ST,HT      ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
-slot = 0
+attr = SCA,AA,AP,AT    ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
 stateno = 5466
 time = 1
 forceair = 0
@@ -2322,8 +2322,7 @@ y = gethitvar(yvel) * 2
 [State 0, HitOverride]
 type = HitOverride
 trigger1 = 1
-attr =  SCA,NA,SA,HA,NP,HP,NT,ST,HT       ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
-slot = 0
+attr = SCA,AA,AP,AT         ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
 stateno = 5466
 time = 1
 forceair = 0
@@ -2387,7 +2386,7 @@ ctrl = 1
 
 [State 200, End]
 type = ChangeState
-trigger1 = pos y >= -11
+trigger1 = pos y >= 0
 value = 451
 
 ;===============================================================================
@@ -4595,7 +4594,7 @@ trigger1 = movehit
 v = 11
 ignorehitpause = 1
 persistent = 0
-value = 15
+value = 10
 
 [State 0, PosAdd]
 type = PosAdd
@@ -4694,9 +4693,9 @@ down.bounce = 1
 type = ChangeState
 trigger1 = command = "hold_c" && command = "holddown" && root,movetype != H  && root,stateno != [120,140] && command != "holdfwd" && numhelper(5465) = 0 && root,stateno != [5040,5210]  && map(Main) = 1 && command != "hold_s"
 trigger2 = command = "hold_c" && command = "holddown" && root,movetype != H  && root,stateno != [120,140] && numhelper(5465) > 0 && root,stateno != [5040,5210] && map(Main) = 1 && command != "hold_s"
-trigger3 = command = "hold_c" && command = "holddown" && root,movetype != H  && root,stateno != [120,140] && command != "holdfwd" && numhelper(5465) = 0 && command != "SPECIAL 5" && map(Main) = 0 && command = "hold_s"
-trigger4 = command = "hold_c" && command = "holddown" && root,movetype != H  && root,stateno != [120,140] && numhelper(5465) > 0 && command != "SPECIAL 5" && map(Main) = 0 && command = "hold_s"
-trigger5 = command = "hold_c" && command = "holddown" && root,movetype != H  && root,stateno != [120,140] && command != "holdfwd"  && numhelper(5465) = 0 && command != "SPECIAL 5" && numhelper(401) = 1
+trigger3 = command = "hold_c" && command = "holddown" && root,movetype != H  && root,stateno != [120,140] && command != "holdfwd" && root,stateno != [5040,5210] && numhelper(5465) = 0 && command != "SPECIAL 5" && map(Main) = 0 && command = "hold_s"
+trigger4 = command = "hold_c" && command = "holddown" && root,movetype != H  && root,stateno != [120,140] && numhelper(5465) > 0 && root,stateno != [5040,5210] && command != "SPECIAL 5" && map(Main) = 0 && command = "hold_s"
+trigger5 = command = "hold_c" && command = "holddown" && root,movetype != H  && root,stateno != [120,140] && command != "holdfwd" && root,stateno != [5040,5210]  && numhelper(5465) = 0 && command != "SPECIAL 5" && numhelper(401) = 1
 value = 461
 ctrl = 0
 
@@ -4705,11 +4704,11 @@ ctrl = 0
 
 [State 200, End]
 type = ChangeState
-trigger1 = command = "c" && root,movetype != H  && root,stateno != [120,140] && command != "holdfwd"  && numhelper(5465) = 0  && command != "SPECIAL 5" && map(Main) = 1 && command != "hold_s"
-trigger2 = command = "c" && root,movetype != H  && root,stateno != [120,140] && numhelper(5465) > 0 && command != "SPECIAL 5" && map(Main) = 1 && command != "hold_s"
-trigger3 = command = "c" && root,movetype != H  && root,stateno != [120,140] && command != "holdfwd"  && numhelper(5465) = 0 && command != "SPECIAL 5" && map(Main) = 0 && command = "hold_s"
-trigger4 = command = "c" && root,movetype != H  && root,stateno != [120,140] && numhelper(5465) > 0 && command != "SPECIAL 5" && map(Main) = 0 && command = "hold_s"
-trigger5 = command = "c" && root,movetype != H  && root,stateno != [120,140] && command != "holdfwd"  && numhelper(5465) = 0 && command != "SPECIAL 5" && numhelper(401) = 1
+trigger1 = command = "c" && root,movetype != H  && root,stateno != [120,140] && command != "holdfwd"  && numhelper(5465) = 0 && root,stateno != [5040,5210] && command != "SPECIAL 5" && map(Main) = 1 && command != "hold_s"
+trigger2 = command = "c" && root,movetype != H  && root,stateno != [120,140] && numhelper(5465) > 0 && command != "SPECIAL 5" && root,stateno != [5040,5210] && map(Main) = 1 && command != "hold_s"
+trigger3 = command = "c" && root,movetype != H  && root,stateno != [120,140] && command != "holdfwd"  && numhelper(5465) = 0 && root,stateno != [5040,5210] && command != "SPECIAL 5" && map(Main) = 0 && command = "hold_s"
+trigger4 = command = "c" && root,movetype != H  && root,stateno != [120,140] && numhelper(5465) > 0 && command != "SPECIAL 5"&& root,stateno != [5040,5210]  && map(Main) = 0 && command = "hold_s"
+trigger5 = command = "c" && root,movetype != H  && root,stateno != [120,140] && command != "holdfwd"  && numhelper(5465) = 0&& root,stateno != [5040,5210]&& command != "SPECIAL 5" && numhelper(401) = 1
 value = 630
 
 ;===============================================================================
