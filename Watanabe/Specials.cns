@@ -112,7 +112,7 @@ helpertype = normal ;player
 name = "Ether Drive"
 ID = 19002
 stateno = 19002
-pos = 30,-40+ifelse(random <= 299,20,0)-ifelse(random <= 299,20,0)
+pos = 30,-40+ifelse(random <= 299,15,0)-ifelse(random <= 299,15,0)
 postype = p1    ;p2,front,back,left,right
 facing = 1
 keyctrl = 0
@@ -470,12 +470,12 @@ guardsound = 6,0
 ground.type = High
 ground.slidetime = 12
 ground.hittime  = 15
-ground.velocity = -2,-10
-air.velocity = -2,-10
+ground.velocity = -.5,-10
+air.velocity = -.5,-10
 Fall = 1
 Envshake.time = 30
 Fall.recover = 0
-down.velocity = -2,-10
+down.velocity = -1,-10
 down.bounce = 1
 
 [State 0, Helper]
@@ -1433,7 +1433,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S,SA
 animtype  = Medium
-damage    = 35
+damage    = 45
 hitflag = MAF
 guardflag = MA
 sparkno = 2
@@ -1480,16 +1480,10 @@ persistent = 0
 
 [State 200, Neutral Reset]
 type = ChangeState
-Triggerall =  time >= 66 && enemy, life >= 1
+Triggerall =  time >= 63
 trigger1 = p2movetype != H 
-trigger2 = helper(401),movehit = 0 && helper(401),stateno = 23500
-trigger2 = AnimElem = 4 ||  AnimElem = 5 ||  AnimElem = 6 ||  AnimElem = 7 || AnimElem = 8
-value = ifelse(pos y < 0, 50, 0)
-ctrl = 1
-
-[State 200, Is he dead?]
-type = ChangeState
-Trigger1 =  time >= 66 && enemy, life <= 0
+trigger2 = helper(401),stateno = 23500 && helper(401),movehit = 0 || helper(401),stateno = 401 && helper(401),movehit = 0 && helper(401),prevstateno = 23500
+;trigger2 = AnimElem = 4 ||  AnimElem = 5 ||  AnimElem = 6 ||  AnimElem = 7 || AnimElem = 8
 value = ifelse(pos y < 0, 50, 0)
 ctrl = 1
 

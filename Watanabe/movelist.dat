@@ -2,7 +2,9 @@
 	"If a sword exists for atleast 1.5 seconds, 
 	it will not take proration or juggle points.
 	A sword stuck in either the ground or wall 
-	summons a Thunder every 3 seconds."
+	summons a Thunder every 3 seconds.
+	Holding your Return key allows you to activate 
+	your second sword (if you have one)."
 
 <#f0f000>:EX ATTACKS!:</>
 
@@ -36,7 +38,7 @@ Seed Throw (1/4 Bar)							_F^C
 "Ether Drive" (1 Bar)						_D_DF_F^A
 	"he shoots a tooooon of swords !!"
 
-"Mystic Nocturn" (1 Bar)					_AIR_D_DB_B^A
+"Mystic Nocturn" (1 Bar _AIR OK)					_D_DB_B^A
 	"Watanabe slams his sword into the ground and summons 
 	plants to protect him, this also summons a grounded 
 	sword."
