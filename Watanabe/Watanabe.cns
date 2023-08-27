@@ -4143,7 +4143,7 @@ sprpriority = 2
 [State 0, VelSet]
 type = VelSet
 trigger1 = 1
-y = ifelse(prevstateno=105&&target,movetype=H,0,ifelse(prevstateno=105||prevstateno=66,-4,vel y/1.7))
+y = ifelse(prevstateno=105&&target,movetype=H,0,ifelse(prevstateno=105||prevstateno=66,-4.5,vel y/1.7))
 ;ignorehitpause = 
 persistent = 0
 
@@ -4436,7 +4436,7 @@ x = 10
 
 [State 0, TargetBind]
 type = TargetBind
-trigger1 = 1
+trigger1 = movehit
 time = 1
 pos = 30,15
 ;ignorehitpause = 
@@ -4488,8 +4488,9 @@ guardsound = 6,11
 p1sprpriority = 0
 ground.type = High
 ground.slidetime = 25
-ground.velocity = 2,-1
-airguard.velocity = 1.5,-1.5
+ground.velocity = 2,-4
+guard.velocity = 3
+airguard.velocity = 1.5,-4
 air.velocity = 1.5,-2
 fall.recover = 0
 Getpower = 0,0
