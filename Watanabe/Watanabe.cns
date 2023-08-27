@@ -4143,7 +4143,7 @@ sprpriority = 2
 [State 0, VelSet]
 type = VelSet
 trigger1 = 1
-y = ifelse(prevstateno=105&&target,movetype=H,0,ifelse(prevstateno=105,-4,vel y/1.7))
+y = ifelse(prevstateno=105&&target,movetype=H,0,ifelse(prevstateno=105||prevstateno=66,-4,vel y/1.7))
 ;ignorehitpause = 
 persistent = 0
 
@@ -4432,7 +4432,7 @@ elem = 3
 [State 0, VelSet]
 type = VelSet
 trigger1 = time >= 9
-x = 12
+x = 10
 
 [State 0, TargetBind]
 type = TargetBind
