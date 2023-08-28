@@ -5,7 +5,7 @@
 ;-------------------------------------------------------------------------------
 [Statedef 19000]
 type    = S
-movetype= I
+movetype= A
 physics = S
 juggle  = 0
 ctrl = 0
@@ -106,7 +106,7 @@ poweradd = 0
 [State 0, Helper]
 type = Helper
 trigger1 = time%3 = 0
-trigger1 = time >= 30 && time <= 85
+trigger1 = time >= 30 && time <= 81
 trigger1 = root,movetype != H 
 helpertype = normal ;player
 name = "Ether Drive"
@@ -816,7 +816,7 @@ fall.recovertime = 90
 [State 0, VelSet]
 type = VelSet
 trigger1 = Time = (15,21) && !movehit
-x = 17
+x = 18
 
 [State 0, VelSet]
 type = VelSet
@@ -842,7 +842,7 @@ ctrl = 1
 ;-------------------------------------------------------------------------------
 [Statedef 22000]
 type    = S
-movetype= I
+movetype= A
 physics = S
 juggle  = 0
 ctrl = 0
@@ -851,10 +851,18 @@ velset = 0,0
 sprpriority = 2
 poweradd = -1000
 
+
+[State 0, Busterable]
+type = MapSet
+trigger1 = 1
+map = "busterable"
+value = 1
+ignorehitpause = 1
+
 [State 0, SuperPause]
 type = SuperPause
-trigger1 = Time = 1
-time = 25
+trigger1 = Time = 0
+time = 20
 sound = 20,0
 pos = 0,-20
 movetime = 25
@@ -1010,7 +1018,7 @@ persistent = 0
 [State 200, 1]
 type = HitDef
 getpower = 0
-triggerall = !movecontact
+triggerall = !movecontact && root,command != "hold_s"
 trigger1 = 1
 attr = A,SP
 animtype  = Medium
@@ -1297,7 +1305,12 @@ velset = 0,0
 sprpriority = 2
 poweradd = -1500
 
-
+[State 0, Juggle Map]
+type = RootMapSet
+trigger1 = movehit && AnimTime = 0
+map = "juggle"
+value = 200
+persistent = 0
 
 [State 0, PlaySnd]
 type = PlaySnd
@@ -1479,9 +1492,10 @@ persistent = 0
 
 [State 200, Neutral Reset]
 type = ChangeState
-Triggerall =  time >= 63
+Triggerall =  time >= 56
 trigger1 = p2movetype != H 
 trigger2 = helper(401),stateno = 23500 && helper(401),movehit = 0 || helper(401),stateno = 401 && helper(401),movehit = 0 && helper(401),prevstateno = 23500
+trigger3 = AnimTime = 0
 ;trigger2 = AnimElem = 4 ||  AnimElem = 5 ||  AnimElem = 6 ||  AnimElem = 7 || AnimElem = 8
 value = ifelse(pos y < 0, 50, 0)
 ctrl = 1
@@ -1583,7 +1597,7 @@ trigger1 = !movecontact
 animtype  = Heavy
 attr = S, NP
 damage = 40
-hitflag = MAF
+hitflag = MAFD
 guardflag = MA
 ground.hittime = 20
 pausetime = 3,45
@@ -1735,9 +1749,9 @@ ground.type = High
 ground.slidetime = 12
 p1sprpriority = 1
 ground.hittime  = 15 + ifelse(enemy,movetype = A || movecountered, 7,0)
-ground.velocity = -1,-6
+ground.velocity = 1,-6
 guard.velocity = 5
-air.velocity = -1,-6
+air.velocity = 1,-6
 Fall = 1
 fall.recover =  0
 

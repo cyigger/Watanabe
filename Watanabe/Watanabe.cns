@@ -207,7 +207,7 @@ velset = 0,0
 [State 0, Helper]
 type = Helper
 triggerall = enemy,teammode = single && teammode = single
-trigger1 = AnimElem = 2
+trigger1 = AnimElem = 2 || AnimElem = 7
 helpertype = player
 name = "fast fall THUNDER"
 ID = 56
@@ -241,13 +241,27 @@ hidebars = 1
 text1 = "<p1>Where yo balance at?<wait=45>"
 text2 = "<p2>Bro why you dming me?<wait=30> Why you dming me?<wait=30> Bro why dming me? <wait=30>I did nothing wrong<wait=30> Im just minding my owne business<wait=30> I did nothing wrong<wait=30>"
 
+;[State 191, Dialogue]; just wait till i make "Dialouge+"
+;type = Dialogue
+;triggerall = enemy,name = "Max"
+;trigger1 = 1
+;hidebars = 1
+;text1 = "<p2>Wait. Wait. Who are you?"
+;text2 = "<p1>Hahahahaha.<wait=5> My name is Exor.<wait=5> I'm a rapper's angel.<wait=5> Traveling blade with the Axem Rangers.<wait=10>"
+;text3 = "<p1>Why should lamers like Mario with his party-oh of a bunch of joes fix a Star Road?<wait=5> I don't think so."
+;text4 = "<p2>Geno Whirl!<wait=10>"
+;text5 = "<p1>I don't blink slow.<wait=5>"
+;text6 = "<p2>Lets do this!<wait=10>"
+;text7 = "<both>'Cause every time I drive and rhyme a rhyme I damage my right eye more than nine times ninety nine!<wait=0>"
+
+
 [State 191, Dialogue]
 type = Dialogue
 triggerall = enemy,name = "kaby"
 trigger1 = 1
 hidebars = 1
 text1 = "<p1>Is... Is that the real Kirby!?<wait=30>"
-text2 = "<p2>no<wait=30>"
+text2 = "<p2>no<wait=0>"
 text3 = "<p1>Faker!<wait=30>"
 text4 = "<p2>im korby black :slight_frown:<wait=30>"
 
@@ -881,7 +895,7 @@ persistent = 0
 
 [State 0, ChangeAnim]
 type = ChangeAnim
-trigger1 = time <= 50 && movehit && time >= 23
+trigger1 = time <= 55 && movehit && time >= 23
 value = 225
 elem = 7
 ;ignorehitpause = 
@@ -898,7 +912,7 @@ animtype  = Heavy
 damage    = 10
 Hitflag = MAF
 guardflag = MA
-pausetime = 0,50
+pausetime = 0,55
 guard.pausetime = 5,2
 sparkno = 2
 guard.sparkno = 13000
@@ -1355,7 +1369,7 @@ triggerall = !movecontact
 trigger1 = root,var(31)!= 0
 attr = S, NA
 animtype  = Heavy
-damage    = 30
+damage    = 25
 Hitflag = MAF
 guardflag = MAF
 pausetime = 18,20
@@ -1679,6 +1693,7 @@ trigger1 = command = "hold_c" && command = "holddown" && root,movetype != H  && 
 trigger2 = command = "hold_c" && command = "holddown" && root,movetype != H  && root,stateno != [120,140] && numhelper(5465) > 0 && root,stateno != [5040,5210] && map(Main) = 1 && command != "hold_s"
 trigger3 = command = "hold_c" && command = "holddown" && root,movetype != H  && root,stateno != [120,140] && command != "holdfwd" && numhelper(5465) = 0 && command != "SPECIAL 5" && map(Main) = 0 && command = "hold_s"
 trigger4 = command = "hold_c" && command = "holddown" && root,movetype != H  && root,stateno != [120,140] && numhelper(5465) > 0 && command != "SPECIAL 5" && map(Main) = 0 && command = "hold_s"
+trigger5 = command = "hold_c" && command = "holddown" && root,movetype != H  && root,stateno != [120,140] && command != "holdfwd"  && numhelper(5465) = 0 && command != "SPECIAL 5" && numhelper(401) = 1
 value = 461
 ctrl = 0
 
@@ -1761,15 +1776,13 @@ persistent = 0
 
 [State 0, ChangeAnim]
 type = ChangeAnim
+triggerall = AnimElemTime(2) > 0 && AnimElemTime(2) < 600
 trigger1 = command = "hold_c" && root,movetype != H  && root,stateno != [120,140] && command != "holdfwd"  && numhelper(5465) = 0 &&  root,stateno != [500,501] && root,stateno != [5040,5210] && map(Main) = 1 && command != "hold_s"
-trigger1 = AnimElemTime(2) > 0 && AnimElemTime(2) < 600
-trigger3 = command = "hold_c" && root,movetype != H  && root,stateno != [120,140] && numhelper(5465) > 0 && root,stateno != [500,501] && root,stateno != [5040,5210] && map(Main) = 1 && command != "hold_s"
-trigger3 = AnimElemTime(2) > 0 && AnimElemTime(2) < 600
-trigger4 = command = "hold_c" && root,movetype != H  && root,stateno != [120,140] && command != "holdfwd" && root,stateno != [500,501]  && numhelper(5465) = 0 && command != "SPECIAL 5" && map(Main) = 0 && command = "hold_s"
-trigger4 = AnimElemTime(2) > 0 && AnimElemTime(2) < 600
-trigger5 = command = "hold_c" && root,movetype != H  && root,stateno != [120,140] && numhelper(5465) > 0 && root,stateno != [500,501] && command != "SPECIAL 5" && map(Main) = 0 && command = "hold_s"
-trigger5 = AnimElemTime(2) > 0 && AnimElemTime(2) < 600
-trigger2 = prevstateno = 623 && p2movetype = H && p2dist x = [-60,60] && p2dist y = [-40,40]
+trigger2 = command = "hold_c" && root,movetype != H  && root,stateno != [120,140] && numhelper(5465) > 0 && root,stateno != [500,501] && root,stateno != [5040,5210] && map(Main) = 1 && command != "hold_s"
+trigger3 = command = "hold_c" && root,movetype != H  && root,stateno != [120,140] && command != "holdfwd" && root,stateno != [500,501]  && numhelper(5465) = 0 && command != "SPECIAL 5" && map(Main) = 0 && command = "hold_s"
+trigger4 = command = "hold_c" && root,movetype != H  && root,stateno != [120,140] && numhelper(5465) > 0 && root,stateno != [500,501] && command != "SPECIAL 5" && map(Main) = 0 && command = "hold_s"
+trigger5 = command = "hold_c" && root,movetype != H  && root,stateno != [120,140] && numhelper(5465) > 0 && root,stateno != [500,501] && command != "SPECIAL 5" && numhelper(401) = 1 
+trigger6 = prevstateno = 623 && p2movetype = H && p2dist x = [-60,60] && p2dist y = [-40,40]
 value = 401
 elem = 3
 persistent = 0
@@ -1892,8 +1905,8 @@ damage    = 5
 hitflag = MAFD
 guardflag = MA
 sparkno = 0
-pausetime = 0,25
-guard.pausetime = 0,15
+pausetime = 0,30
+guard.pausetime = 0,12
 guard.sparkno = 13000
 sparkxy = -8,-25
 hitsound   = S0,1
@@ -1956,7 +1969,7 @@ sprpriority = 0
 
 [State 0, Helper]
 type = Helper
-trigger1 = time = 20
+trigger1 = time = 15
 helpertype = normal ;player
 name = "green sword"
 ID = 401
@@ -2211,7 +2224,7 @@ forceair = 0
 type = RootMapAdd
 trigger1 = movehit && enemy,gethitvar(fall)
 map = "juggle"
-value = 8
+value = 10
 persistent = 0
 
 ;ignorehitpause = 
@@ -2241,7 +2254,7 @@ persistent = 0
 [State 200, 1]
 type = HitDef
 getpower = 0
-triggerall = !movecontact
+triggerall = !movecontact && root,command != "hold_s"
 trigger1 = 1
 attr = A,SP
 animtype  = Medium
@@ -2540,7 +2553,7 @@ priority = 1, Miss
 hitflag = MAFD
 guardflag =  MA
 sparkno = 0
-pausetime = 0,60
+pausetime = 0,70
 ground.velocity = 0,0
 air.velocity = 0,0
 guard.sparkno = 13000
@@ -2549,7 +2562,6 @@ hitsound   = 5,1
 guardsound = 6,10
 ground.type = High
 ground.slidetime = 0
-Envshake.time = 5
 
 
 
@@ -2565,6 +2577,13 @@ ctrl = 0
 anim = 453
 velset = 0,0
 
+
+[State 0, Busterable]
+type = MapSet
+trigger1 = prevstateno = [22005,22020]
+map = "busterable"
+value = 1
+ignorehitpause = 1
 
 [State 0, PlaySnd]
 type = PlaySnd
@@ -2924,7 +2943,7 @@ ampl = -4
 type = PowerAdd
 triggerall = time >= 7
 triggerall = numhelper(9999) = 0
-trigger1 = helper(401),stateno != 401
+trigger1 = helper(401),stateno != 401 && numhelper(401) = [0,1]
 ;trigger1 = helper(401),animelem != 3 || helper(401),animelem != 4 || helper(401),animelem != 5 
 trigger1 = 1
 value = 10
@@ -2933,7 +2952,7 @@ value = 10
 type = PowerAdd
 triggerall = time >= 7
 triggerall = numhelper(9999) = 0
-trigger1 = helper(401),stateno = 401
+trigger1 = helper(401),stateno = 401 || numhelper(401) > 1
 ;trigger1 = helper(401),animelem = 3 || helper(401),animelem = 4 || helper(401),animelem = 5 
 trigger1 = 1
 value = 5
@@ -4298,7 +4317,7 @@ type = TargetBind
 trigger1 = movehit || movecontact && target, pos y < 0
 time = 1
 id = -1
-pos = 30,15
+pos = 0,15
 ;ignorehitpause = 
 ;persistent = 
 
@@ -4340,7 +4359,7 @@ hitflag = MAF
 guardflag = MA
 ground.hittime = 20
 pausetime = 0,80
-guard.pausetime = 3,0
+guard.pausetime = 0,5
 sparkno = 0
 sparkxy = 0, 0
 hitsound = 5,3
@@ -4438,7 +4457,7 @@ x = 10
 type = TargetBind
 trigger1 = movehit
 time = 1
-pos = 30,15
+pos = 0,15
 ;ignorehitpause = 
 ;persistent = 
 
@@ -4479,7 +4498,7 @@ hitflag = MAFD
 guardflag = MA
 ground.hittime = 20
 pausetime = 0,150
-guard.pausetime = 3,0
+guard.pausetime = 0,10
 sparkno = 0
 sparkxy = 0, 0
 hitsound = 5,3
@@ -4490,8 +4509,8 @@ ground.type = High
 ground.slidetime = 25
 ground.velocity = 2,-4
 guard.velocity = 3
-airguard.velocity = 1.5,-4
-air.velocity = 1.5,-2
+airguard.velocity = 3,-4
+air.velocity = 3,-2
 fall.recover = 0
 Getpower = 0,0
 
@@ -5011,7 +5030,7 @@ persistent = 0
 
 [State 400, 4]
 type = HitDef
-trigger1 = !movecontact && prevstateno != 401 || !movecontact && prevstateno != 629
+trigger1 = !movecontact && prevstateno != 401 || !movecontact && prevstateno != 629  || !movecontact && prevstateno != 628
 animtype  = Heavy
 attr = S, NP
 damage = ifelse(enemy,movetype = A,20,10)
@@ -5019,7 +5038,7 @@ hitflag = MAFD
 guardflag = HA
 ground.hittime = 20
 pausetime = 0,30
-guard.pausetime = 3,0
+guard.pausetime = 0,3
 sparkno = 0
 sparkxy = 0, 0
 hitsound = 5,3
@@ -5044,7 +5063,7 @@ hitflag = MAFD
 guardflag = MA
 ground.hittime = 20
 pausetime = 0,90
-guard.pausetime = 3,0
+guard.pausetime = 0,3
 sparkno = 0
 sparkxy = 0, 0
 hitsound = 5,3
@@ -5196,7 +5215,7 @@ hitflag = MAFD
 guardflag = MA
 ground.hittime = 20
 pausetime = 0,5
-guard.pausetime = 3,0
+guard.pausetime = 0,5
 sparkno = 0
 sparkxy = 0, 0
 hitsound = 5,3
@@ -5300,7 +5319,7 @@ hitflag = MAFD
 guardflag = MA
 ground.hittime = 20
 pausetime = 0,5
-guard.pausetime = 3,0
+guard.pausetime = 0,3
 sparkno = 0
 sparkxy = 0, 0
 hitsound = 5,3
@@ -5340,6 +5359,28 @@ sprpriority = 3
 type = ScreenBound
 trigger1 = 1
 value = 1
+
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = AnimElem = 8
+time = 10
+;freq = 60
+;ampl = -4
+;phase = 90
+;ignorehitpause = 
+;persistent = 
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 1 || AnimElem = 3 || AnimElem = 5
+value = S621,0
+volume = 100
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 8
+value = S621,1
+volume = 100
 
 [State 0, Juggle Map]
 type = RootMapSet
@@ -5405,7 +5446,7 @@ air.velocity = 0,7
 down.bounce = 0
 ground.type = High
 ground.slidetime = 12
-Envshake.time = 5
+Envshake.time = 10
 
 
 [State 200, End]
@@ -5446,7 +5487,7 @@ sprpriority = 5
 
 [State 200, End]
 type = Changestate
-trigger1 = time = 40
+trigger1 = time = 60
 value = 430
 ;-------------------------------------------------------------------------------
 ; Spam Allow

@@ -762,7 +762,18 @@ ctrl = 0
 anim = 56
 velset = 0,0
 sprpriority = 5
-poweradd = -250
+poweradd = -200
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 2
+value = S621,1
+volume = 100
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = AnimElem = 2
+time = 10
 
 [State 0, PosSet]
 type = PosSet

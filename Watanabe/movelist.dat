@@ -3,7 +3,7 @@
 	it will not take proration or juggle points.
 	A sword stuck in either the ground or wall 
 	summons a Thunder every 3 seconds.
-	Holding your Return key allows you to activate 
+	Holding your Charge key allows you to activate 
 	your second sword instead of your first one
 	(if you have one)."
 
@@ -29,9 +29,10 @@ Grounded Summon: Air (1/2 Bar)								_AIR_D^C
 Seed Throw (1/4 Bar)							_F^C
 	"Watanabe throws a seed that will wrap around the
 	 opponent. When this lands it will grow into a plant
-	 that will wrap on contact. Pressing forward with
+	 that will wrap on contact. Dashing with
 	 atleast 1/2 a bar will allow you to roman cancel
-	 this into run/airdash."
+	 this into run/airdash. Holding your Charge key
+	will make the seed miss."
 
 
 <#f0f000>:STAR STRIKES!:</>
