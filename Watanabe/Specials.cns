@@ -1103,9 +1103,16 @@ y = gethitvar(yvel) * 2
 ;ignorehitpause = 
 ;persistent = 
 
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = time <= 5
+value = SCA,AT,AA,AP
+;value2 = S,NA
+time = 1
+
 [State 0, HitOverride]
 type = HitOverride
-trigger1 = 1
+trigger1 = time >= 5
 attr = SCA,AA,AP,AT         ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
 stateno = 22010
 time = 1
