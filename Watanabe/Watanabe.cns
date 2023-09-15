@@ -1036,6 +1036,13 @@ Fall.recovertime = 60 + ifelse(enemy,movetype = A, 7,0)
 guard.cornerpush.veloff = -5
 airguard.cornerpush.veloff = -4
 
+[State -1, Ether Drive]
+type = ChangeState
+value = 19000
+Triggerall = movecontact
+triggerall = numhelper(3500) = 0
+trigger1 = command = "SPECIAL 1"
+Triggerall = power >= 1000
 
 [State -1, not Ether Drive]
 type = ChangeState
@@ -1313,8 +1320,8 @@ persistent = 0
 value = 7
 
 [State 0, FatalCounter]
-type = RootMapSet
-trigger1 = movehit
+type = MapSet
+trigger1 = 1
 map = "fatal"
 value = 1
 ignorehitpause = 1
@@ -2307,8 +2314,8 @@ ctrl = 0
 anim = 5465
 
 [State 0, FatalCounter]
-type = RootMapSet
-trigger1 = movehit
+type = MapSet
+trigger1 = 1
 map = "fatal"
 value = 1
 ignorehitpause = 1
@@ -2326,22 +2333,15 @@ y = 0
 
 [State 0, VelAdd]
 type = VelAdd
-trigger1 = time = 1
+trigger1 = time = 0
 x = gethitvar(xvel) * 2
 y = gethitvar(yvel) * 2
 ;ignorehitpause = 
 ;persistent = 
 
-[State 0, NotHitBy]
-type = NotHitBy
-trigger1 = time <= 5
-value = SCA,AT,AA,AP
-;value2 = S,NA
-time = 1
-
 [State 0, HitOverride]
 type = HitOverride
-trigger1 = time >= 5
+trigger1 = 1
 attr = SCA,AA,AP,AT         ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
 stateno = 5466
 time = 1
@@ -2517,11 +2517,11 @@ value = movehit
 ;ignorehitpause = 
 ;persistent = 
 
-[State 1010, Helper Attack Scale]
-type = AttackMulSet
-trigger1 = 1
-value = 1 * 0.99**root,var(11)
-ignorehitpause = 1
+;[State 1010, Helper Attack Scale]
+;type = AttackMulSet
+;trigger1 = 1
+;value = 1 * 0.99**root,var(11)
+;ignorehitpause = 1
 
 [State -2, Counterhit TSP]
 type = Helper
@@ -2553,9 +2553,9 @@ type = HitDef
 getpower = 0
 triggerall = !movecontact && root,stateno != 23000 
 trigger1 = 1
-attr = S,SA
+attr = S,NA
 animtype  = Medium
-damage    = 20
+damage    = 10
 priority = 1, Miss
 hitflag = MAFD
 guardflag =  MA
@@ -3516,7 +3516,6 @@ guard.cornerpush.veloff = -10
 airguard.cornerpush.veloff = -10
 ;ground.cornerpush.veloff = -5
 ;air.cornerpush.veloff = -5
-
 [State -1, not Ether Drive]
 type = ChangeState
 value = 21000
@@ -4571,12 +4570,12 @@ pos = 0,0
 ;ignorehitpause = 
 persistent = 0
 
-[State 0, Juggle Map]
-type = RootMapSet
+[State 0, FatalCounter]
+type = MapSet
 trigger1 = 1
 map = "fatal"
 value = 1
-persistent = 0
+ignorehitpause = 1
 
 [State 0, Helper]
 type = Helper
@@ -4967,12 +4966,12 @@ x = root,pos x
 ;ignorehitpause = 
 ;persistent = 
 
-[State 0, Juggle Map]
-type = RootMapSet
+[State 0, FatalCounter]
+type = MapSet
 trigger1 = 1
 map = "fatal"
 value = 1
-persistent = 0
+ignorehitpause = 1
 
 [State 0, Juggle Map]
 type = RootMapAdd
@@ -4987,14 +4986,9 @@ trigger1 = movehit &&  numhelper(403) = 0
 v = 11
 ignorehitpause = 1
 persistent = 0
-value = 5
+value = 3
 
-[State 0, Juggle Map]
-type = RootMapSet
-trigger1 = movehit
-map = "fatal"
-value = 1
-persistent = 0
+
 
 [State 0, TargetBind]
 type = TargetBind
@@ -5389,12 +5383,12 @@ trigger1 = AnimElem = 8
 value = S621,1
 volume = 100
 
-[State 0, Juggle Map]
-type = RootMapSet
+[State 0, FatalCounter]
+type = MapSet
 trigger1 = 1
 map = "fatal"
 value = 1
-persistent = 0
+ignorehitpause = 1
 
 [State 1010, Helper Attack Scale]
 type = AttackMulSet

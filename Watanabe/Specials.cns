@@ -244,7 +244,7 @@ poweradd = -1000
 
 [State 0, FatalCounter]
 type = MapSet
-trigger1 = movehit
+trigger1 = 1
 map = "fatal"
 value = 1
 ignorehitpause = 1
@@ -872,7 +872,7 @@ poweradd = 0
 
 [State 0, Helper]
 type = Helper
-trigger1 = time = 26
+trigger1 = time = 24
 helpertype = normal ;player
 name = "plantTHROWSuper"
 ID = 5465
@@ -892,7 +892,7 @@ supermovetime= 0
 
 [State 0, Helper]
 type = Helper
-trigger1 = time = 27
+trigger1 = time = 23
 helpertype = normal ;player
 name = "plantTHROWSuper"
 ID = 5465
@@ -1078,7 +1078,7 @@ value = 30
 
 
 [State 0, FatalCounter]
-type = RootMapSet
+type = MapSet
 trigger1 = 1
 map = "fatal"
 value = 1
@@ -1103,16 +1103,9 @@ y = gethitvar(yvel) * 2
 ;ignorehitpause = 
 ;persistent = 
 
-[State 0, NotHitBy]
-type = NotHitBy
-trigger1 = time <= 5
-value = SCA,AT,AA,AP
-;value2 = S,NA
-time = 1
-
 [State 0, HitOverride]
 type = HitOverride
-trigger1 = time >= 5
+trigger1 = 1
 attr = SCA,AA,AP,AT         ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
 stateno = 22010
 time = 1
@@ -1284,7 +1277,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S,SA
 animtype  = Medium
-damage    = 30
+damage    = 40
 hitflag = MAFD
 guardflag =  MA
 sparkno = 0
@@ -1758,7 +1751,7 @@ p1sprpriority = 1
 ground.hittime  = 15 + ifelse(enemy,movetype = A || movecountered, 7,0)
 ground.velocity = 1,-6
 guard.velocity = 5
-air.velocity = 1,-6
+air.velocity = .5,-6
 Fall = 1
 fall.recover =  0
 
