@@ -46,7 +46,7 @@ ignorehitpause = 1
 [State 0, SuperPause]
 type = SuperPause
 trigger1 = Time = 1
-time = 10
+time = 5
 sound = 20,0
 pos = 0,-20
 movetime = 0
@@ -83,6 +83,15 @@ keyctrl = 0
 ownpal = 1
 supermovetime = 9999
 pausemovetime = 9999
+
+[State 0, ChangeState]
+type = ChangeState
+triggerall = numhelper(401) <= 1
+trigger1 = time >= 40
+trigger1 = command = "hold_c"
+trigger1 = power >= 500
+value = 620
+ctrl = 0
 
 [State 0, ChangeState]
 type = ChangeState
@@ -289,7 +298,7 @@ channel = 0
 type = SuperPause
 trigger1 = Time = 1
 anim = 92006
-time = 10
+time = 15
 sound = 20,0
 pos = 0,-20
 movetime = 0
@@ -541,6 +550,11 @@ pausemovetime = 0
 scale = 1,1
 sprpriority = 2
 removeongethit = 0
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = AnimElem = 3
+time = 20
 
 [State 0, PosSet]
 type = PosSet
@@ -865,7 +879,7 @@ trigger1 = Time = 0
 time = 20
 sound = 20,0
 pos = 0,-20
-movetime = 25
+movetime = 20
 darken = 1
 p2defmul = 1
 poweradd = 0
@@ -895,7 +909,7 @@ type = Helper
 trigger1 = time = 23
 helpertype = normal ;player
 name = "plantTHROWSuper"
-ID = 5465
+ID = 5466
 stateno = 22005
 pos = 0,-40
 postype = p1    ;p2,front,back,left,right
@@ -951,7 +965,7 @@ y = 0
 
 [State 0, VelAdd]
 type = VelAdd 
-trigger1 = time = 1 && numHelper(5465) = 0
+trigger1 = time = 1 && IsHelper(5465)
 x = 4
 y = -4
 ;ignorehitpause = 
@@ -959,28 +973,28 @@ y = -4
 
 [State 0, VelAdd]
 type = VelAdd 
-trigger1 = time = 1 && numHelper(5465) = 1
+trigger1 = time = 1 && IsHelper(5466)
 x = -4
 y = -4
 
-[State 0, VelAdd]
-type = VelAdd 
-trigger1 = time = 1 && numHelper(5465) = 2
-x = 2.5
-y = -4
-
-[State 0, VelAdd]
-type = VelAdd 
-trigger1 = time = 1 && numHelper(5465) = 3
-x = -2.5
-y = -4
-
-
-[State 0, VelAdd]
-type = VelAdd 
-trigger1 = time = 1 && numHelper(5465) > 3
-x = 2.5
-y = -6
+;[State 0, VelAdd]
+;type = VelAdd 
+;trigger1 = time = 1 && numHelper(5465) = 2
+;x = 2.5
+;y = -4
+;
+;[State 0, VelAdd]
+;type = VelAdd 
+;trigger1 = time = 1 && numHelper(5465) = 3
+;x = -2.5
+;y = -4
+;
+;
+;[State 0, VelAdd]
+;type = VelAdd 
+;trigger1 = time = 1 && numHelper(5465) > 3
+;x = 2.5
+;y = -6
 
 
 
@@ -1103,6 +1117,13 @@ y = gethitvar(yvel) * 2
 ;ignorehitpause = 
 ;persistent = 
 
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = time <= 5
+value = SCA,AT,AA,AP
+;value2 = S,NA
+time = 1
+
 [State 0, HitOverride]
 type = HitOverride
 trigger1 = 1
@@ -1222,6 +1243,15 @@ type = ChangeState
 trigger1 = Time = 540
 value = 454
 ctrl = 1
+
+[State 0, PalFX]
+type = PalFX ; all i got to do now is
+trigger1 = 1
+time = 1
+invertall = 0
+color = 0
+;ignorehitpause = 
+;persistent = 
 
 [State 0, NotHitBy]
 type = NotHitBy
@@ -1818,7 +1848,7 @@ poweradd = 0
 
 [State 0, LifeSet]
 type = LifeSet
-trigger1 = AnimTime = 0
+trigger1 = AnimTime = 0 ; cc
 value = 0
 
 [State 200, End]

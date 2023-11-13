@@ -622,7 +622,7 @@ trigger1 = ctrl
 [State -1, SPECIAL 4]
 type = ChangeState
 value = 22000
-triggerall = numhelper(5465) < 2 
+triggerall = numhelper(5465) = 0  && numhelper(5466) = 0 
 triggerall = numhelper(3500) = 0
 triggerall = command = "SPECIAL 4"
 Triggerall = power >= 1000
