@@ -127,37 +127,37 @@ time = 30
 name = "SPECIAL 1"
 command = ~D,DF,F,a
 time = 15
-buffer.time = 20
+buffer.time = 5
 
 [command]
 name = "SPECIAL 2"
 command = ~D,DB,B,a
 time = 15
-buffer.time = 20
+buffer.time = 5
 
 [command]
 name = "SPECIAL 3"
 command = ~D,DF,F,b
 time = 15
-buffer.time = 20
+buffer.time = 5
 
 [command]
 name = "SPECIAL 4"
 command = ~D,DB,B,b
 time = 15
-buffer.time = 20
+buffer.time = 5
 
 [command]
 name = "SPECIAL 5"
 command = ~D,DF,F,c
 time = 15
-buffer.time = 20
+buffer.time = 5
 
 [command]
 name = "SPECIAL 6"
 command = ~D,DB,B,c
 time = 15
-buffer.time = 20
+buffer.time = 5
 ;-| Double Tap |-----------------------------------------------------------
 [Command]
 name = "FF"     ;Required (do not remove)
